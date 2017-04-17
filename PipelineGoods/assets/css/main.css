@@ -1956,6 +1956,12 @@
 		height: 2.75em;
 	}
 
+	.filter2{
+		height: 2.75em;
+		margin-left: 83%;
+		width:17%;
+	}
+
 	textarea {
 		padding: 0.75em 1em;
 	}
