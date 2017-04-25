@@ -21,38 +21,10 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="http://www.webglearth.com/v2/api.js"></script>
-    <script>
-        function initialize() {
-            var options = {
-                zoom: 2.0,
-                position: [43.091581, -77.642158]
-            }; // ROC On!
-            var earth = new WE.map('earth_div', options);
-            WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap contributors',
-            }).addTo(earth);
-            // Start a simple rotation animation.
-            var before = null;
-            requestAnimationFrame(function animate(now) {
-                var c = earth.getPosition();
-                var elapsed = before ? now - before : 0;
-                before = now;
-                earth.setCenter([c[0], c[1] + 0.3 * (elapsed / 30)]);
-                requestAnimationFrame(animate);
-            });
-            // Add dummy markers
-            var marker1 = WE.marker([51.5, -0.1]).addTo(earth)
-            marker1.bindPopup('<b>Jim</b><br><div>London, UK</div><br><b><div style="color:#FF0000">X Against X</div></b>');
-            var marker2 = WE.marker([31.9686, -99.9018]).addTo(earth)
-            marker2.bindPopup('<b>Bobby</b><br><div>Dallas, TX</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>');
-            var marker3 = WE.marker([40.9686, -95.9018]).addTo(earth)
-            marker3.bindPopup('<b>Bobbys Brother</b><br><div>Lincoln, NE</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>');
-        }
-    </script>
     <script src="assets/js/cookie.js"></script>
 </head>
 
-<body onload="initialize(); checkLogin()">
+<body onload="checkLogin()">
 
     <!-- Wrapper -->
     <div id="wrapper">
@@ -133,20 +105,12 @@
         <div id="main">
 
             <!-- Globe & Parts -->
-            <h1>Awareness Globe</h1>
-            <div id="earth_div" style="max-width:100%;height:500px;border:1px solid gray; padding:2px;"></div>
-            <br>
-            <h3>Sign The Globe</h3>
-            <form action="#">
-                <input type="text" placeholder="Enter Your Name"></input>
-                <br>
-                <input type="email" placeholder="Enter Your Email (Not Displayed)"></input>
-                <br>
-                <input type="text" placeholder="Enter Your City"></input>
-                <br>
-                <input type="radio" name="stance" value="For" checked>For Pipeline<br>
-                <input type="radio" name="stance" value="Against"> Against Pipeline<br><br>
-                <input type="submit">
+            <h1>Register</h1>
+            <form action="index.html" method="POST" class="action vertical">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="user" placeholder="Username" required>
+                <input type="password" id="pass" placeholder="Password" required>
+                <button type="submit" class="button big fit">Register</button>
             </form>
 
         </div>
@@ -159,45 +123,8 @@
                 <header>
                     <h2>Pipeline</h2>
                     <p><b>Dakota Access Pipeline Info. Without the Crude.<b></p>
-								</header>
-							</section>
-
-						<!-- Mini Posts -->
-							<section>
-								<div class="mini-posts">
-
-									<!-- Mini Post -->
-										<article class="mini-post">
-											<header>
-												<h3><a href="http://www.cnn.com/2017/01/24/politics/trump-keystone-xl-dakota-access-pipelines-executive-actions/">Trump advances controversial oil pipelines with executive action</a></h3>
-												<time class="published" datetime="2017-1-24">January 24, 2017</time>
-												<a href="http://www.cnn.com/2017/01/24/politics/trump-keystone-xl-dakota-access-pipelines-executive-actions/" class="author"></a>
-											</header>
-											<a href="http://www.cnn.com/2017/01/24/politics/trump-keystone-xl-dakota-access-pipelines-executive-actions/" class="image"><img src="images/pic04.jpg" alt="" /></a>
-										</article>
-
-									<!-- Mini Post -->
-										<article class="mini-post">
-											<header>
-												<h3><a href="http://www.kfyrtv.com/content/news/Morton-County-responds-to-rumoured-crop-sprayer-near-DAPL-protesters-395335861.html">Morton County addresses crop sprayer near DAPL protesters</a></h3>
-												<time class="published" datetime="2016-10-19">October 19, 2016</time>
-												<a href="http://www.kfyrtv.com/content/news/Morton-County-responds-to-rumoured-crop-sprayer-near-DAPL-protesters-395335861.html" class="author"></a>
-											</header>
-											<a href="http://www.kfyrtv.com/content/news/Morton-County-responds-to-rumoured-crop-sprayer-near-DAPL-protesters-395335861.html" class="image"><img src="images/pic05.jpg" alt="" /></a>
-										</article>
-
-									<!-- Mini Post -->
-										<article class="mini-post">
-											<header>
-												<h3><a href="http://www.breitbart.com/big-government/2016/08/10/approval-of-new-keystone-pipeline-outrages-environmentalists/">Approval of ‘New’ Keystone Pipeline Outrages Environmentalists</a></h3>
-												<time class="published" datetime="2016-8-10">August 10, 2016</time>
-												<a href="http://www.breitbart.com/big-government/2016/08/10/approval-of-new-keystone-pipeline-outrages-environmentalists/" class="author"></a>
-											</header>
-											<a href="http://www.breitbart.com/big-government/2016/08/10/approval-of-new-keystone-pipeline-outrages-environmentalists/" class="image"><img src="images/pic06.jpg" alt="" /></a>
-										</article>
-
-								</div>
-							</section>
+				</header>
+			</section>
 
 						<!-- About -->
 							<section class="blurb">
