@@ -38,13 +38,24 @@ if (parent == top) {
     $('a.article').show();
 }
 
+function initSidebar() {
+  var el = document.getElementById('sidebar');
+  if(localStorage.getItem("toggle444")) {
+    el.style.display = localStorage.getItem("toggle444");
+  }
+  else {
+    el.style.display = 'block';
+    localStorage.setItem("toggle444", 'block');
+  }
+}
 
 function toggleSidebar() {
     var el = document.getElementById('sidebar');
-    if (el.style.display === 'none') {
+    if (localStorage.getItem("toggle444") == "none") {
         el.style.display = 'block';
+        localStorage.setItem("toggle444", 'block');
     } else {
-        console.log('show');
-        el.style.display = 'none';;
+        el.style.display = 'none';
+        localStorage.setItem("toggle444", 'none');
     }
 }
