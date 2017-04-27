@@ -58,46 +58,29 @@
     <!-- Menu -->
     <section id="menu">
 
-      <!-- Search -->
+      <!-- Actions -->
       <section>
-        <form class="search" method="get" action="#">
-          <input type="text" name="query" placeholder="Search" />
-        </form>
+          <ul class="actions vertical">
+              <span id="userNotLogin">
+                  <li><a href="login.html" class="button big fit">Log In</a></li>
+                  <li><a href="register.html" class="button big fit">Register</a></li>
+              </span>
+              <li id="userLogin"><a href="index.html" class="button big fit" onclick="logout()">Log out</a></li>
+          </ul>
       </section>
 
       <!-- Links -->
       <section>
-        <ul class="links">
-          <li>
-            Language
-            <a href="#" class="logo"><img src="images/us.png" alt="Logo" />
-              <h3>English</h3>
-            </a>
-            <a href="#" class="logo"><img src="images/es.png" alt="Logo" />
-              <h3>Espa&ntilde;ol</h3>
-            </a>
-            <a href="#" class="logo"><img src="images/cn.png" alt="Logo" />
-              <h3>中文</h3>
-            </a>
-          </li>
-          <li>
-            <a class="logo" style="cursor: pointer" onclick="toggleSidebar()">
-              <h3>Toggle Sidenav</h3>
-            </a>
-          </li>
-        </ul>
+        <a href="#" style="margin-right: 50px;" class="logo"><img src="images/us.png" alt="Logo" />English</a>
+        <a href="#" style="margin-right: 60px;" class="logo"><img src="images/es.png" alt="Logo" />Espa&ntilde;ol</a>
+        <a href="#" class="logo"><img src="images/cn.png" alt="Logo" />中文</a>
       </section>
 
-      <!-- Actions -->
       <section>
-        <ul class="actions vertical">
-          <span id="userNotLogin">
-										<li><a href="login.html" class="button big fit">Log In</a></li>
-										<li><a href="register.html" class="button big fit">Register</a></li>
-									</span>
-          <li id="userLogin"><a href="index.html" class="button big fit" onclick="logout()">Log out</a></li>
-        </ul>
-      </section>
+        <center>
+          <button class="logo" onclick="toggleSidebar()">Toggle News Bar</button>
+        </center>
+     </section>
 
     </section>
 
