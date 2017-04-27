@@ -37,3 +37,14 @@ $('form.chat input[type="submit"]').click(function (event) {
 if (parent == top) {
     $('a.article').show();
 }
+
+
+function toggleSidebar() {
+    var el = document.getElementById('sidebar');
+    if (el.style.display === 'none') {
+        el.style.display = 'block';
+    } else {
+        console.log('show');
+        el.style.display = 'none';;
+    }
+}
