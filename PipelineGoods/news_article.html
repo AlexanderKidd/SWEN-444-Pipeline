@@ -18,9 +18,14 @@
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<link rel="stylesheet" href="assets/css/rating.css" />
+	<script src="assets/js/jquery.min.js"></script>
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<script src="assets/js/cookie.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
 </head>
 
 <body onload="checkLogin()">
@@ -90,12 +95,12 @@
 			<!-- Actions -->
 			<section>
 				<ul class="actions vertical">
-                    <span id="userNotLogin">
+					<span id="userNotLogin">
                         <li><a href="login.html" class="button big fit">Log In</a></li>
                         <li><a href="register.html" class="button big fit">Register</a></li>
                     </span>
-                    <li id="userLogin"><a href="index.html" class="button big fit" onclick="logout()">Log out</a></li>
-                </ul>
+					<li id="userLogin"><a href="index.html" class="button big fit" onclick="logout()">Log out</a></li>
+				</ul>
 			</section>
 
 		</section>
@@ -131,6 +136,10 @@
 						<li><a href="#">General</a></li>
 						<li><a href="#" class="icon fa-star">4.5</a></li>
 						<li><a href="#" class="icon fa-comment">128</a></li>
+						<li>
+							<div id="rateYo"></div>
+
+						</li>
 					</ul>
 				</footer>
 				<!-- Add Dummy Comments Here -->
@@ -138,16 +147,23 @@
 					<!--<textarea rows="4" cols="50" placeholder="Tell us what you think!"></textarea> Rating-->
 					<div>
 						<textarea name=""></textarea>
-						<span>Rate:</span>
+						<!--<span>Rate:</span>
 						<div style="display: inline-block">
 							<div class="rating">
 								<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 							</div>
 
-						</div>
-
-
+					</div>-->
 					</div>
+					<script>
+						$(function () {
+
+							$("#rateYo").rateYo({
+								starWidth: "20px"
+							});
+
+						});
+					</script>
 					<input type="submit" value="Login/Register">
 				</form>
 			</article>
@@ -223,7 +239,6 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
