@@ -27,7 +27,7 @@
                 zoom: 2.0,
                 position: [43.091581, -77.642158]
             }; // ROC On!
-            var earth = new WE.map('earth_div', options);
+						var earth = new WE.map('earth_div', options);
             WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors',
             }).addTo(earth);
@@ -47,7 +47,27 @@
             marker2.bindPopup('<b>Bobby</b><br><div>Dallas, TX</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>');
             var marker3 = WE.marker([40.9686, -95.9018]).addTo(earth)
             marker3.bindPopup('<b>Bobbys Brother</b><br><div>Lincoln, NE</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>');
+            // If the form has been submitted, add user's support marker.
+						var marker4 = WE.marker([43.2, -77.6]).addTo(earth)
+						if(localStorage.getItem("forAgainst") == "true") {
+						  marker4.bindPopup('<b>' + localStorage.getItem("name") + '</b><br><div>' + localStorage.getItem("place") + '</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>');
+					  }
+						else {
+							marker4.bindPopup('<b>' + localStorage.getItem("name") + '</b><br><div>' + localStorage.getItem("place") + '</div><br><b><div style="color:#FF0000">X Against X</div></b>');
+						}
         }
+
+				// Adds localStorage values, not marker.
+				function addToEarth(name, place, forAgainst) {
+						if (typeof(Storage) !== "undefined") {
+	            // Store
+	            localStorage.setItem("name", name);
+							localStorage.setItem("place", place);
+							localStorage.setItem("forAgainst", forAgainst);
+	         } else {
+	            console.log("Sorry, your browser does not support Web Storage...");
+	         }
+				}
     </script>
     <script src="assets/js/cookie.js"></script>
 </head>
@@ -138,15 +158,15 @@
             <br>
             <h3>Sign The Globe</h3>
             <form action="#">
-                <input type="text" placeholder="Enter Your Name"></input>
+                <input type="text" id="name" placeholder="Enter Your Name"></input>
                 <br>
                 <input type="email" placeholder="Enter Your Email (Not Displayed)"></input>
                 <br>
-                <input type="text" placeholder="Enter Your City"></input>
+                <input type="text" id="place" placeholder="Enter Your City"></input>
                 <br>
-                <input type="radio" name="stance" value="For" checked>For Pipeline<br>
+                <input type="radio" id="stance" name="stance" value="For" checked>For Pipeline<br>
                 <input type="radio" name="stance" value="Against"> Against Pipeline<br><br>
-                <input type="submit">
+                <input type="submit" onclick="addToEarth(document.getElementById('name').value, document.getElementById('place').value, document.getElementById('stance').checked)">
             </form>
 
         </div>
