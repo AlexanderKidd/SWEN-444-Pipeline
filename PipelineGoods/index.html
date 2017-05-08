@@ -151,18 +151,37 @@
             <h1 style="text-align:center;">Awareness Globe</h1>
             <div id="earth_div" style="margin:auto;max-width:750px;height:500px;border:1px solid gray; padding:2px;"></div>
             <br>
-            <h3>Sign The Globe</h3>
-            <form action="#">
-                <input type="text" id="name" placeholder="Enter Your Name"></input>
-                <br>
-                <input type="email" placeholder="Enter Your Email (Not Displayed)"></input>
-                <br>
-                <input type="text" id="place" placeholder="Enter Your City"></input>
-                <br>
-                <input type="radio" id="stance" name="stance" value="For" checked>For Pipeline<br>
-                <input type="radio" name="stance" value="Against"> Against Pipeline<br><br>
-                <input type="submit" onclick="addToEarth(document.getElementById('name').value, document.getElementById('place').value, document.getElementById('stance').checked)">
-            </form>
+            <div>
+                <h3>Sign The Globe</h3>
+                <form action="#" id="globeForm">
+                    <p><i> is not a sign-in form</i></p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates excepturi, debitis? Facilis qui
+                        omnis voluptatem necessitatibus accusamus obcaecati et minima asperiores possimus quo explicabo illum
+                        consequuntur vel veniam, delectus unde.
+                    </p>
+                    <input type="text" id="name" placeholder="Enter Your Name" required></input>
+                    <br>
+                    <input type="email" placeholder="Enter Your Email (Not Displayed)" required></input>
+                    <br>
+                    <input type="text" id="place" placeholder="Enter Your City" required></input>
+                    <br>
+                    <input type="radio" id="stance" name="stance" value="For" checked>For Pipeline<br>
+                    <input type="radio" name="stance" value="Against"> Against Pipeline<br><br>
+                    <button type="button" onclick="submitStance()">Submit Your Stance</button>
+                </form>
+                <div id="thankForSigning" style="visibility: hidden">
+                    <p>Thank you for signing the globe</p>
+                </div>
+
+            </div>
+            <script>
+                function submitStance() {
+                    addToEarth(document.getElementById('name').value, document.getElementById('place').value,
+                        document.getElementById('stance').checked);
+                    document.getElementById('globeForm').style.display = 'none';
+                    document.getElementById('thankForSigning').style.visibility = 'visible';
+                }
+            </script>
 
         </div>
 
