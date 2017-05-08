@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <!--
-	Future Imperfect by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  Future Imperfect by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 
-	Pipeline UX Prototype by Environment X
-	Simply for non-commercial, mockup purposes only.
-	4/12/17
+  Pipeline UX Prototype by Environment X
+  Simply for non-commercial, mockup purposes only.
+  4/12/17
 -->
 <html>
 
@@ -21,12 +21,17 @@
   <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
   <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
   <script src="assets/js/cookie.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="assets/PageLoadingEffects/PageLoadingEffects/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="assets/PageLoadingEffects/PageLoadingEffects/css/component.css" />
+  <script src="assets/PageLoadingEffects/PageLoadingEffects/js/snap.svg-min.js"></script>
+
 </head>
 
 <body onload="initSidebar(); checkLogin()">
 
   <!-- Wrapper -->
-  <div id="wrapper">
+  <div id="wrapper" style="visibility: hidden">
 
     <!-- Header -->
     <header id="header">
@@ -35,7 +40,7 @@
       </h1>
       <nav class="links">
         <ul>
-          <li><a href="./news.html">News</a></li>
+          <li><a href="./news.html" onclick="">News</a></li>
           <li><a href="./scholarly_articles.html">Scholarly Articles</a></li>
           <li><a href="./petitions.html">Petitions</a></li>
           <li><a href="./discussions.html">Discussions</a></li>
@@ -61,13 +66,13 @@
 
       <!-- Actions -->
       <section>
-          <ul class="actions vertical">
-              <span id="userNotLogin">
+        <ul class="actions vertical">
+          <span id="userNotLogin">
                   <li><a href="login.html" class="button big fit">Log In</a></li>
                   <li><a href="register.html" class="button big fit">Register</a></li>
               </span>
-              <li id="userLogin"><a href="index.html" class="button big fit" onclick="logout()">Log out</a></li>
-          </ul>
+          <li id="userLogin"><a href="index.html" class="button big fit" onclick="logout()">Log out</a></li>
+        </ul>
       </section>
 
       <!-- Links -->
@@ -241,8 +246,7 @@
                 <p>Pipeline is your one-stop shop for all things concerning the Dakota Access Pipeline (DAPL).</p>
               </section>
 
-        <!-- Footer -->
-          <section id="footer">
+        <!-- Footer --> <section id="footer">
             <ul class="icons">
               <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
               <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
@@ -264,5 +268,35 @@
 
       <script src="assets/js/huy.js"></script>
 
+<!--page anmiation-->
+  <link rel="stylesheet" type="text/css" href="assets/PageLoadingEffects/PageLoadingEffects/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="assets/PageLoadingEffects/PageLoadingEffects/css/component.css" />
+  <script src="assets/PageLoadingEffects/PageLoadingEffects/js/snap.svg-min.js"></script>
+
+    <div id="loader" class="pageload-overlay" data-opening="M20,15 50,30 50,30 30,30 Z;M0,0 80,0 50,30 20,45 Z;M0,0 80,0 60,45 0,60 Z;M0,0 80,0 80,60 0,60 Z" data-closing="M0,0 80,0 60,45 0,60 Z;M0,0 80,0 50,30 20,45 Z;M20,15 50,30 50,30 30,30 Z;M30,30 50,30 50,30 30,30 Z">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none">
+          <path d="M30,30 50,30 50,30 30,30 Z"/>
+        </svg>
+      </div><!-- /pageload-overlay -->
+      
+    <script src="assets/PageLoadingEffects/PageLoadingEffects/js/classie.js"></script>
+    <script src="assets/PageLoadingEffects/PageLoadingEffects/js/svgLoader.js"></script>
+    <script>
+      (function() {
+
+          loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 100 } );
+        function init() {
+              loader.show();
+
+              // after some time hide loader
+              setTimeout( function() {
+                loader.hide();
+document.getElementById('wrapper').style.visibility = 'visible';
+
+              }, 1500 );
+        }
+        init();
+      })();
+    </script>
   </body>
 </html>

@@ -28,7 +28,7 @@
                 zoom: 2.0,
                 position: [43.091581, -77.642158]
             }; // ROC On!
-						var earth = new WE.map('earth_div', options);
+            var earth = new WE.map('earth_div', options);
             WE.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors',
             }).addTo(earth);
@@ -43,34 +43,40 @@
             });
             // Add dummy markers
             var marker1 = WE.marker([51.5, -0.1]).addTo(earth)
-            marker1.bindPopup('<b>Jim</b><br><div>London, UK</div><br><b><div style="color:#FF0000">X Against X</div></b>');
+            marker1.bindPopup(
+                '<b>Jim</b><br><div>London, UK</div><br><b><div style="color:#FF0000">X Against X</div></b>');
             var marker2 = WE.marker([31.9686, -99.9018]).addTo(earth)
-            marker2.bindPopup('<b>Bobby</b><br><div>Dallas, TX</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>');
+            marker2.bindPopup(
+                '<b>Bobby</b><br><div>Dallas, TX</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>'
+            );
             var marker3 = WE.marker([40.9686, -95.9018]).addTo(earth)
-            marker3.bindPopup('<b>Bobbys Brother</b><br><div>Lincoln, NE</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>');
+            marker3.bindPopup(
+                '<b>Bobbys Brother</b><br><div>Lincoln, NE</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>'
+            );
             // If the form has been submitted, add user's support marker.
-            if(localStorage.getItem("name") && localStorage.getItem("place") && localStorage.getItem("forAgainst")) {
-              var marker4 = WE.marker([43.2, -77.6]).addTo(earth)
-  						if(localStorage.getItem("forAgainst") == "true") {
-  						  marker4.bindPopup('<b>' + localStorage.getItem("name") + '</b><br><div>' + localStorage.getItem("place") + '</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>');
-  					  }
-  						else {
-  							marker4.bindPopup('<b>' + localStorage.getItem("name") + '</b><br><div>' + localStorage.getItem("place") + '</div><br><b><div style="color:#FF0000">X Against X</div></b>');
-  						}
+            if (localStorage.getItem("name") && localStorage.getItem("place") && localStorage.getItem("forAgainst")) {
+                var marker4 = WE.marker([43.2, -77.6]).addTo(earth)
+                if (localStorage.getItem("forAgainst") == "true") {
+                    marker4.bindPopup('<b>' + localStorage.getItem("name") + '</b><br><div>' + localStorage.getItem(
+                        "place") + '</div><br><b><div style="color:#00CCFF">&#10004 For &#10004</div></b>');
+                } else {
+                    marker4.bindPopup('<b>' + localStorage.getItem("name") + '</b><br><div>' + localStorage.getItem(
+                        "place") + '</div><br><b><div style="color:#FF0000">X Against X</div></b>');
+                }
             }
         }
 
-				// Adds localStorage values, not marker.
-				function addToEarth(name, place, forAgainst) {
-						if (typeof(Storage) !== "undefined") {
-	            // Store
-	            localStorage.setItem("name", name);
-							localStorage.setItem("place", place);
-							localStorage.setItem("forAgainst", forAgainst);
-	         } else {
-	            console.log("Sorry, your browser does not support Web Storage...");
-	         }
-				}
+        // Adds localStorage values, not marker.
+        function addToEarth(name, place, forAgainst) {
+            if (typeof (Storage) !== "undefined") {
+                // Store
+                localStorage.setItem("name", name);
+                localStorage.setItem("place", place);
+                localStorage.setItem("forAgainst", forAgainst);
+            } else {
+                console.log("Sorry, your browser does not support Web Storage...");
+            }
+        }
     </script>
     <script src="assets/js/cookie.js"></script>
 </head>
@@ -79,7 +85,7 @@
 
 
     <!-- Wrapper -->
-    <div id="wrapper">
+    <div id="wrapper" style="visibility: hidden">
 
         <!-- Header -->
         <header id="header">
@@ -125,16 +131,16 @@
 
             <!-- Links -->
             <section>
-              <a href="#" style="margin-right: 50px;" class="logo"><img src="images/us.png" alt="Logo" />English</a>
-              <a href="#" style="margin-right: 60px;" class="logo"><img src="images/es.png" alt="Logo" />Espa&ntilde;ol</a>
-              <a href="#" class="logo"><img src="images/cn.png" alt="Logo" />中文</a>
+                <a href="#" style="margin-right: 50px;" class="logo"><img src="images/us.png" alt="Logo" />English</a>
+                <a href="#" style="margin-right: 60px;" class="logo"><img src="images/es.png" alt="Logo" />Espa&ntilde;ol</a>
+                <a href="#" class="logo"><img src="images/cn.png" alt="Logo" />中文</a>
             </section>
 
             <section>
-              <center>
-                <button class="logo" onclick="toggleSidebar()">Toggle News Bar</button>
-              </center>
-           </section>
+                <center>
+                    <button class="logo" onclick="toggleSidebar()">Toggle News Bar</button>
+                </center>
+            </section>
 
         </section>
 
@@ -238,6 +244,36 @@
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
       <script src="assets/js/huy.js"></script>
+<!--page anmiation-->
+  <link rel="stylesheet" type="text/css" href="assets/PageLoadingEffects/PageLoadingEffects/css/normalize.css" />
+  <link rel="stylesheet" type="text/css" href="assets/PageLoadingEffects/PageLoadingEffects/css/component.css" />
+  <script src="assets/PageLoadingEffects/PageLoadingEffects/js/snap.svg-min.js"></script>
+
+    <div id="loader" class="pageload-overlay" data-opening="M20,15 50,30 50,30 30,30 Z;M0,0 80,0 50,30 20,45 Z;M0,0 80,0 60,45 0,60 Z;M0,0 80,0 80,60 0,60 Z" data-closing="M0,0 80,0 60,45 0,60 Z;M0,0 80,0 50,30 20,45 Z;M20,15 50,30 50,30 30,30 Z;M30,30 50,30 50,30 30,30 Z">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none">
+          <path d="M30,30 50,30 50,30 30,30 Z"/>
+        </svg>
+      </div><!-- /pageload-overlay -->
+      
+    <script src="assets/PageLoadingEffects/PageLoadingEffects/js/classie.js"></script>
+    <script src="assets/PageLoadingEffects/PageLoadingEffects/js/svgLoader.js"></script>
+    <script>
+      (function() {
+
+          loader = new SVGLoader( document.getElementById( 'loader' ), { speedIn : 100 } );
+        function init() {
+              loader.show();
+
+              // after some time hide loader
+              setTimeout( function() {
+                loader.hide();
+document.getElementById('wrapper').style.visibility = 'visible';
+
+              }, 1500 );
+        }
+        init();
+      })();
+    </script>
 
 	</body>
 </html>
