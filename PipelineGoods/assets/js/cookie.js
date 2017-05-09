@@ -26,6 +26,7 @@ function eraseCookie(name) {
 function checkLogin() {
     if (readCookie("user")) {
         document.getElementById("userNotLogin").style.display = "none";
+        document.getElementsByClassName("userNotLogin")[0].style.display = "none";
         document.getElementById("userLogin").style.display = "block";
     } else {
         document.getElementById("userNotLogin").style.display = "block";
